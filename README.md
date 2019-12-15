@@ -21,19 +21,6 @@
    </p>
 </p>
 
-### Built With
-* [Flutter](https://flutter.dev)
-* [Android SDK](https://developer.android.com/studio)
-* [VSCode](https://code.visualstudio.com/)
-<!-- GETTING STARTED -->
-## Getting Started
-
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-* [Flutter](https://flutter.dev/docs/get-started/install)
-* [Android SDK](https://developer.android.com/studio)
-
 ### Installation
 1. Clone the repo
 ```sh
