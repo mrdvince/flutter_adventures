@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:travel_ui/models/activity_model.dart';
 import 'package:travel_ui/models/destination_model.dart';
 
 class DestinationScreen extends StatefulWidget {
@@ -106,9 +107,67 @@ class _DestinationScreenState extends State<DestinationScreen> {
             Positioned(
               right: 20.0,
               bottom: 20.0,
-              child: Icon(Icons.location_on, size: 25.0,color: Colors.white70,),
+              child: Icon(
+                Icons.location_on,
+                size: 25.0,
+                color: Colors.white70,
+              ),
             )
           ]),
+          Expanded(
+            child: ListView.builder(
+              itemCount: widget.destination.activities.length,
+              itemBuilder: (BuildContext context, int index) {
+                Activity activity = widget.destination.activities[index];
+                return Stack(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.fromLTRB(40, 5, 20, 5),
+                      height: 170,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: Column(children: <Widget>[
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(activity.name),
+                            Text('\$' + activity.price.toString())
+                          ],
+                        ),
+                        Text(activity.type),
+                        // _buildStarRatings(activity.rating):
+                        SizedBox(height: 10.0),
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              width: 70,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).accentColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(activity.startTimes[0]),
+                            ),
+                          Container(
+                              width: 70,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).accentColor,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              alignment: Alignment.center,
+                              child: Text(activity.startTimes[1]),
+                            )],
+                        )
+                      ]),
+                    )
+                  ],
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
