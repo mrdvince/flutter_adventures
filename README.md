@@ -48,7 +48,7 @@ flutter run
 <p align="center">
     A simple Demo app showing a travel guide dummy UI. 
     <br />
-    <a href="#"><strong>Explore »</strong></a>
+    <a href="#"><strong>Download the apk and Explore »</strong></a>
    </p>
 
 ### Home Screen
