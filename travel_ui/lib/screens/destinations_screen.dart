@@ -11,7 +11,7 @@ class DestinationScreen extends StatefulWidget {
 }
 
 class _DestinationScreenState extends State<DestinationScreen> {
-  Text _buildStarRatings(int rating){
+  Text _buildStarRatings(int rating) {
     String stars = '';
     for (int i = 0; i < rating; i++) {
       stars += '⭐';
@@ -19,6 +19,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
     stars.trim();
     return Text(stars);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,7 +124,9 @@ class _DestinationScreenState extends State<DestinationScreen> {
             )
           ]),
           Expanded(
+
             child: ListView.builder(
+              padding: EdgeInsets.only(top: 10, bottom: 15),
               itemCount: widget.destination.activities.length,
               itemBuilder: (BuildContext context, int index) {
                 Activity activity = widget.destination.activities[index];
@@ -177,6 +180,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               Row(
                                 children: <Widget>[
                                   Container(
+                                    padding: EdgeInsets.all(5),
                                     width: 70,
                                     decoration: BoxDecoration(
                                       color: Theme.of(context).accentColor,
@@ -198,6 +202,19 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 ],
                               )
                             ]),
+                      ),
+                    ),
+                    Positioned(
+                      top: 15,
+                      bottom: 15,
+                      left: 20,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image(
+                          width: 110,
+                          image: AssetImage(activity.imageUrl),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     )
                   ],
