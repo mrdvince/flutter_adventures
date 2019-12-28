@@ -59,6 +59,10 @@ flutter run
 
 <img src="screenshots/travelui3.png" width="280"/> <img src="screenshots/travelui4.png" width="280"/>
 
+### Message Screen
+
+<img src="screenshots/message.png" width="280"/>
+
 <!-- LICENSE -->
 
 ## License

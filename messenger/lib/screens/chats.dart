@@ -13,6 +13,8 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  _buildMessage(Message message, bool isMe) {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,13 +47,16 @@ class _ChatScreenState extends State<ChatScreen> {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
+                  topLeft: Radius.circular(32),
+                  topRight: Radius.circular(32),
                 ),
                 child: ListView.builder(
+                    padding: EdgeInsets.only(top: 15),
                     itemCount: messages.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Text(messages[index].text);
+                      final Message message = messages[index];
+                      final bool isMe = message.sender.id == currentUser.id;
+                      return _buildMessage(message, isMe);
                     }),
               ),
             ),
