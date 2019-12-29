@@ -19,18 +19,36 @@ class _ChatScreenState extends State<ChatScreen> {
           ? EdgeInsets.only(top: 8, bottom: 8, left: 80)
           : EdgeInsets.only(top: 8, bottom: 8, right: 80),
       decoration: BoxDecoration(
-        color: isMe ? Theme.of(context).accentColor : Color(0XFFFFEFEE),
-        borderRadius: isMe?BorderRadius.only(
-          topLeft: Radius.circular(15),
-          bottomLeft: Radius.circular(15),
-        ) :
-        BorderRadius.only(
-          topRight: Radius.circular(15),
-          bottomRight: Radius.circular(15),
-        )
-      ),
+          color: isMe ? Theme.of(context).accentColor : Color(0XFFFFEFEE),
+          borderRadius: isMe
+              ? BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                  bottomLeft: Radius.circular(15),
+                )
+              : BorderRadius.only(
+                  topRight: Radius.circular(15),
+                  bottomRight: Radius.circular(15),
+                )),
       padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
-      child: Text(message.text),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            message.time,
+            style: TextStyle(
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.w600,
+                fontSize: 16),
+          ),
+          Text(
+            message.text,
+            style: TextStyle(
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.w600,
+                fontSize: 16),
+          ),
+        ],
+      ),
     );
   }
 
@@ -70,6 +88,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   topRight: Radius.circular(32),
                 ),
                 child: ListView.builder(
+                  reverse: true,
                     padding: EdgeInsets.only(top: 15),
                     itemCount: messages.length,
                     itemBuilder: (BuildContext context, int index) {
