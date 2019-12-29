@@ -13,7 +13,26 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  _buildMessage(Message message, bool isMe) {}
+  _buildMessage(Message message, bool isMe) {
+    return Container(
+      margin: isMe
+          ? EdgeInsets.only(top: 8, bottom: 8, left: 80)
+          : EdgeInsets.only(top: 8, bottom: 8, right: 80),
+      decoration: BoxDecoration(
+        color: isMe ? Theme.of(context).accentColor : Color(0XFFFFEFEE),
+        borderRadius: isMe?BorderRadius.only(
+          topLeft: Radius.circular(15),
+          bottomLeft: Radius.circular(15),
+        ) :
+        BorderRadius.only(
+          topRight: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        )
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+      child: Text(message.text),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
