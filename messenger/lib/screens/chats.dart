@@ -19,7 +19,7 @@ class _ChatScreenState extends State<ChatScreen> {
         Container(
           margin: isMe
               ? EdgeInsets.only(top: 8, bottom: 8, left: 80)
-              : EdgeInsets.only(top: 8, bottom: 8, right: 80),
+              : EdgeInsets.only(top: 8, bottom: 8),
           decoration: BoxDecoration(
               color: isMe ? Theme.of(context).accentColor : Color(0XFFFFEFEE),
               borderRadius: isMe
@@ -32,6 +32,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       bottomRight: Radius.circular(15),
                     )),
           padding: EdgeInsets.symmetric(horizontal: 25, vertical: 15),
+          width: MediaQuery.of(context).size.width *0.75,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -53,9 +54,9 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ),
         IconButton(
-            icon: Icon(Icons.more_horiz),
+            icon: message.isLiked ? Icon(Icons.favorite) : Icon(Icons.favorite_border),
             iconSize: 25,
-            color: Colors.white,
+            color: Colors.black,
             onPressed: () {},
           )
       ],
